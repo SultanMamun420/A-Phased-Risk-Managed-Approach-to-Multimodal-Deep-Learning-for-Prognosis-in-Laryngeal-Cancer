@@ -161,3 +161,72 @@ Fig. 05: Confusion Matrix for the Sparse MoE Model on the test set (Accuracy: 0.
 Fig. 06: Gating Weights and Expert Selection Distribution for the SparseMoE model, showing balanced expert utilization (50%/50%).
 
 Fig. 07: Model Performance Comparison summarizing validation accuracy over training time and final metrics.
+
+
+Step 2: Creating synthetic medical dataset... Training samples: 700 Validation samples: 100 Test samples: 200
+
+
+
+
+Fig. 01. Synthetic Medical image (Simulating)
+
+
+Step 3: Building Baseline Model (Static Fusion)... Step 4: Building Sparse Mixture-of-Experts (SparseMoE)... Step 5: Setting up training framework... Step 6: Training models... Model Statistics: Baseline Model parameters: 228,099 Sparse MoE parameters: 176,741 Trainable in MoE (gating only): 31,333 ================================================== Training Baseline Model... ================================================== Training Baseline for 30 epochs... Epoch 1/30 | Train Loss: 1.0298 | Train Acc: 56.14% | Val Loss: 1.0678 | Val Acc: 49.00% | LR: 1.00e-04 Epoch 5/30 | Train Loss: 0.5985 | Train Acc: 83.57% | Val Loss: 0.5872 | Val Acc: 80.00% | LR: 1.00e-04 Epoch 10/30 | Train Loss: 0.3216 | Train Acc: 89.00% | Val Loss: 0.3011 | Val Acc: 88.00% | LR: 1.00e-04 Epoch 15/30 | Train Loss: 0.1995 | Train Acc: 94.29% | Val Loss: 0.1260 | Val Acc: 96.00% | LR: 1.00e-04 Epoch 20/30 | Train Loss: 0.0941 | Train Acc: 98.29% | Val Loss: 0.0770 | Val Acc: 96.00% | LR: 1.00e-04 Epoch 25/30 | Train Loss: 0.0616 | Train Acc: 98.43% | Val Loss: 0.0350 | Val Acc: 99.00% | LR: 1.00e-04 Epoch 30/30 | Train Loss: 0.0329 | Train Acc: 99.29% | Val Loss: 0.0408 | Val Acc: 98.00% | LR: 1.00e-04 ================================================== Training Sparse MoE Model... ================================================== Training Sparse MoE for 30 epochs... Epoch 1/30 | Train Loss: 1.0700 | Train Acc: 47.86% | Val Loss: 1.0959 | Val Acc: 31.00% | LR: 1.00e-04 Epoch 5/30 | Train Loss: 0.8129 | Train Acc: 79.71% | Val Loss: 0.8198 | Val Acc: 80.00% | LR: 1.00e-04 Epoch 10/30 | Train Loss: 0.6401 | Train Acc: 83.00% | Val Loss: 0.6785 | Val Acc: 80.00% | LR: 1.00e-04 Epoch 15/30 | Train Loss: 0.5373 | Train Acc: 85.57% | Val Loss: 0.6028 | Val Acc: 81.00% | LR: 1.00e-04 Epoch 20/30 | Train Loss: 0.4768 | Train Acc: 85.86% | Val Loss: 0.5565 | Val Acc: 82.00% | LR: 1.00e-04 Epoch 25/30 | Train Loss: 0.4357 | Train Acc: 86.86% | Val Loss: 0.5301 | Val Acc: 83.00% | LR: 1.00e-04 Epoch 30/30 | Train Loss: 0.4088 | Train Acc: 87.00% | Val Loss: 0.5235 | Val Acc: 83.00% | LR: 1.00e-04
+
+
+
+
+Fig. 02. Baline Model- training and Accuracy Curves 
+
+
+
+Fig. 03. Sparse MoE Model- training and Accuracy Curves 
+
+
+
+Step 7: Evaluating models on test set... ================================================== Baseline Model Results: Accuracy: 1.0000 F1-Score: 1.0000 Average Confidence: 0.9944
+
+
+
+
+Fig. 04. Confusion Matrix- Baseline Model
+
+
+
+Sparse MoE Model Results: 
+Accuracy: 0.9700 
+F1-Score: 0.9698 
+Average Confidence: 0.8258
+
+
+
+
+Fig. 05. Confusion Matrix- Sparse MoE Model
+
+Step 8: Explainability Analysis (Gating Behavior)... ================================================== Gating Network Analysis: 
+Total expert selections: 400 
+Expert 1: 200 selections (50.0%) 
+Expert 2: 200 selections (50.0%)
+
+
+
+Fig. 06. Gating Weights and Expert selection Distribution 
+
+
+
+Step 9: Performance Comparison...
+
+
+Fig. 07. Model Performance Comparison  and Validation Accuracy Over time 
+
+
+Step 9: Performance Comparison...
+
+============================================================ RESEARCH PLAN ALIGNMENT SUMMARY ============================================================ ✅ PHASE 1 (Baseline) - IMPLEMENTED: • Static fusion of expert features (concatenation) • Bayesian-inspired regularization (dropout 0.5) • Transfer learning approach (frozen experts in MoE) • Performance: Accuracy = 1.000, F1 = 1.000 ✅ PHASE 2 (Sparse MoE) - IMPLEMENTED: • Top-2 gating mechanism (sparse activation) • Frozen expert feature extractors • Trainable gating network only • Performance: Accuracy = 0.970, F1 = 0.970 ✅ RESEARCH METHODOLOGY - FOLLOWED: • Risk-managed approach (baseline first, then MoE) • Explainability via gating weights analysis • Comparative evaluation framework • Statistical performance metrics 📊 RESULTS SUMMARY: • Baseline vs MoE Accuracy: 1.000 vs 0.970 • Baseline shows better performance on this synthetic data • Expert specialization observed (gating diversity) - Expert 1: 50.0% of samples - Expert 2: 50.0% of samples
+
+NEXT STEPS (Per Research Plan): 
+1.Add temporal component for longitudinal data 
+2.Implement causal regularization (CausalReg) 
+3.Integrate Bayesian uncertainty quantification 
+4.Develop clinician-in-the-loop evaluation 
+5.Validate on real MRIgRT dataset 
